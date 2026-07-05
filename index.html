@@ -1,54 +1,55 @@
 <label>Take Selfie</label>
 
 <input
-  type="file"
-  id="selfie"
-  accept="image/*"
-  capture="user"
-  style="display:none;"
+    type="file"
+    id="selfie"
+    accept="image/*"
+    capture="user"
+    required
+    style="display:none;"
 >
 
 <label for="selfie" style="
 display:block;
 width:100%;
-padding:15px;
+padding:14px;
 background:#0d6efd;
-color:#fff;
+color:white;
 text-align:center;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
-font-size:16px;
 font-weight:bold;
 margin-top:10px;">
 📸 Take Selfie
 </label>
 
-<button onclick="submitSelfie()" style="
+<button id="submitBtn" onclick="submitSelfie()" style="
 width:100%;
 padding:14px;
 margin-top:15px;
 background:#28a745;
-color:#fff;
+color:white;
 border:none;
-border-radius:10px;
+border-radius:8px;
 font-size:16px;
 cursor:pointer;">
 Submit
 </button>
 
 <p id="msg" style="display:none;color:green;text-align:center;margin-top:15px;">
-Selfie Submitted Successfully ✅
+Submitted Successfully ✅
 </p>
 
 <script>
-function submitSelfie() {
-    const file = document.getElementById("selfie").files;
+function submitSelfie(){
 
-    if (file.length === 0) {
+    const selfie = document.getElementById("selfie").files;
+
+    if(selfie.length === 0){
         alert("Please take a selfie first.");
         return;
     }
 
-    document.getElementById("msg").style.display = "block";
+    document.getElementById("msg").style.display="block";
 }
 </script>
